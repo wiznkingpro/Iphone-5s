@@ -1,0 +1,337 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int var_1(int a) {
+	return (a > 0) ? (a += 1) : (a = a);
+}
+
+int var_2(int a) {
+	return (a > 0) ? (a += 1) : (a -= 2);
+}
+
+int var_3(int a) {
+	return (a > 0) ? (a += 1) : ((a == 0) ? (a = 10) : (a -= 2));
+}
+
+int var_4(int a, int b, int c) {
+	return (a > 0) + (b > 0) + (c > 0);
+}
+
+void var_5(int &a, int &b, int c) {
+	int a_f = a;
+	int b_f = b;
+	a = (a_f > 0) + (b_f > 0) + (c > 0);
+	b = (a_f < 0) + (b_f < 0) + (c < 0);
+}
+
+int var_6(int a, int b) {
+	return max(a, b);
+}
+
+int var_7(int a, int b) {
+	return (a > b) ? (a = 1) : (a = 2);
+}
+
+void var_8(int &a, int &b) {
+	int a_f = a;
+	int b_f = b;
+	a = max(a_f, b_f);
+	b = min(a_f, b_f);
+}
+
+void var_9(float& a_f, float& b_f) {
+	float a_f_f = a_f;
+	float b_f_f = b_f;
+	a_f = min(a_f_f, b_f_f);
+	b_f = max(a_f_f, b_f_f);
+}
+
+void var_10(int& a, int& b) {
+	(a != b) ? (a = a + b, b = a+b) : (a =0, b=0);
+}
+
+void var_11(int& a, int& b) {
+	(a != b) ? (a = max(a,b), b = max(a, b)) : (a = 0, b = 0);
+}
+
+void var_12(int& a, int& b , int& c) {
+	a = min(a, min(b, c));
+}
+
+void var_13(int& a, int& b, int& c) {
+	int arr[3] = { a, b, c };
+	for (int i = 0; i < 3; i++) {
+		for (int k = 0; k < 2; k++) {
+			if (arr[k] > arr[k + 1]) {
+				swap(arr[k], arr[k + 1]);
+			}
+		}
+	}
+	a = arr[1];
+}
+
+void var_14(int& a, int& b, int& c) {
+	int arr[3] = { a, b, c };
+	for (int i = 0; i < 3; i++) {
+		for (int k = 0; k < 2; k++) {
+			if (arr[k] > arr[k + 1]) {
+				swap(arr[k], arr[k + 1]);
+			}
+		}
+	}
+	a = arr[0];
+	b = arr[2];
+}
+
+
+void var_15(int& a, int& b, int& c) {
+	int arr[3] = { a, b, c };
+	for (int i = 0; i < 3; i++) {
+		for (int k = 0; k < 2; k++) {
+			if (arr[k] > arr[k + 1]) {
+				swap(arr[k], arr[k + 1]);
+			}
+		}
+	}
+	a = arr[1] + arr[2];
+
+}
+
+void var_16(float& a_f, float& b_f, float& c_f) {
+	(a_f < b_f && b_f < c_f) ? (a_f *= 2, b_f *= 2, c_f *= 2) : (a_f *= -1, b_f *= -1, c_f *= -1);
+}
+
+void var_17(float& a_f, float& b_f, float& c_f) {
+	((a_f < b_f && b_f < c_f) || (a_f > b_f && b_f > c_f)) ? (a_f *= 2, b_f *= 2, c_f *= 2) : (a_f *= -1, b_f *= -1, c_f *= -1);
+}
+
+void var_18(int& a, int& b, int& c) {
+	(a == b) ? (a = 3) : ((a == c) ? (a = 2) : (a = 1));
+}
+
+void var_19(int& a, int& b, int& c, int& d) {
+	int arr[4] = {a, b, c, d};
+	for (int i = 0; i < 4; i++) {
+		if (arr[i] != arr[(i + 1) % 4] && arr[i] != arr[(i + 2) % 4]) {
+			a = i + 1;
+		}
+	}
+}
+
+void var_20(int& a, int& b, int& c, char &letter) {
+	(b - a < 0) ? (b = (b - a) * -1) : (b = b - a);
+	(c - a < 0) ? (c = (c - a) * -1) : (c = c - a);
+	a = min(b, c);
+	(a == b) ? (letter = 'B') : (letter = 'C');
+}
+
+int var_21(int A[2]) {
+	int a;
+	(A[0] == 0 && A[1] == 0) ? (a = 0) : ((A[0] != 1 && A[1] == 0) ? (a = 1) : ((A[0] == 0 && A[1] != 1) ? (a = 2) : (a = 3)));
+
+	return a;
+}
+
+int var_22(int A[2]) {
+	int a;
+	(A[0] > 0 && A[1] > 0) ? (a = 1) : ((A[0] < 0 && A[1] > 0) ? (a = 2) : ((A[0] < 0 && A[1] < 0) ? (a = 3) : (a = 4)));
+
+	return a;
+}
+
+void var_23(int &a, int &b, int X[3], int Y[3]) {
+    for (int i = 0; i < 3; i++) {
+        if (X[i] != X[(i + 1) % 3] && X[i] != X[(i + 2) % 3]) {
+            a = X[i];
+        }
+        if (Y[i] != Y[(i + 1) % 3] && Y[i] != Y[(i + 2) % 3]) {
+            b = Y[i];
+        }
+    }
+}
+
+float var_24(float a_f) {
+	float a;
+    
+    (a_f > 0) ? (a = 2 * sin(a_f)) : (a = 6 - a_f);
+    
+	return a;
+}
+
+int var_25(int a) {
+	int b;
+	
+	(a < -2 || a > 2) ? (b = 2 * a) : (b = -3 * a);
+    
+	return b;
+}
+
+float var_26(float a_f) {
+	float b;
+	
+	(a_f <= 0) ? (b = -a_f) : ((0 < a_f && a_f < 2) ? (b = a_f * a_f) : (4));
+    
+	return b;
+}
+
+float var_27(float a_f) {
+	float b;
+	
+	(a_f < 0) ? (b = 0) : ((int(a_f) % 2 == 0) ? (b = 1) : (b = -1));
+    
+	return b;
+}
+
+int var_28(int a) {
+	int b;
+	
+	(a % 4 == 0 && a % 100 == 0 && a % 400 != 0) ? (b = 366) : (b = 365);
+    
+	return b;
+}
+
+string var_29(int a) {
+    string b;
+    
+    (a == 0) ? (b = "Null") : ((a > 0) ? (b = "Plus ") : (b = "Minus "));
+    (a == 0) ? (b = "Null") : ((a % 2 == 0) ? (b += "and /2 ") : (b += "and not/2 "));
+    
+    return b;
+}
+
+string var_30(int a) {
+    string b;
+    
+    (a % 2 == 0) ? (b += "/2 and ") : (b += "not/2 and ");
+    (a / 10 < 1) ? (b += "one razrad") : ((a / 10 < 10) ? (b += "two razrad") : (b += "tree razrad"));
+    return b;
+}
+
+
+int main()
+{
+	int a, b, c, d;
+
+	float a_f, b_f, c_f;
+
+	char letter;
+	
+	int A[2];
+	int X[3];
+	int Y[3];
+
+	cin >> a;
+	cout << "(var_1 result) " << var_1(a) << endl;
+
+
+	cin >> a;
+	cout << "(var_2 result) " << var_2(a) << endl;
+	
+	cin >> a;
+	cout << "(var_3 result) " << var_3(a) << endl;
+
+	cin >> a >> b >> c;
+	cout << "(var_4 result) " << var_4(a,b,c) << endl;
+	
+
+	cin >> a >> b >> c;
+	var_5(a,b,c);
+	cout << "(var_4 result) " << "+ num " << a << " - num " << b << endl;
+
+	cin >> a >> b;
+	cout << "(var_6 result) " << var_6(a, b) << endl;
+
+
+	cin >> a >> b;
+	cout << "(var_7 result) " << var_7(a, b) << endl;
+
+	cin >> a >> b;
+	var_8(a, b);
+	cout << "(var_8 result) " << " its max " << a << " its min " << b << endl;
+
+	cin >> a_f >> b_f;
+	var_9(a_f, b_f);
+	cout << "(var_9 result) " << a_f << " " << b_f << endl;
+
+	cin >> a >> b;
+	var_10(a, b);
+	cout << "(var_10 result) " << a << " " << b << endl;
+
+	cin >> a >> b;
+	var_11(a, b);
+	cout << "(var_11 result) " << a << " " << b << endl;
+
+	cin >> a >> b >> c;
+	var_12(a, b, c);
+	cout << "(var_12 result) " << a << endl;
+
+	cin >> a >> b >> c;
+	var_13(a, b, c);
+	cout << "(var_13 result) " << a << endl;
+
+	cin >> a >> b >> c;
+	var_14(a, b, c);
+	cout << "(var_14 result) " << a << " " << endl;
+
+
+	cin >> a >> b >> c;
+	var_15(a, b, c);
+	cout << "(var_15 result) " << a << endl;
+
+
+	cin >> a_f >> b_f >> c_f;
+	var_16(a_f, b_f, c_f);
+	cout << "(var_16 result) " << a_f << " " << b_f << " " << c_f << endl;
+
+	cin >> a_f >> b_f >> c_f;
+	var_17(a_f, b_f, c_f);
+	cout << "(var_17 result) " << a_f << " " << b_f << " " << c_f << endl;
+
+	cin >> a >> b >> c;
+	var_18(a, b, c);
+	cout << "(var_18 result) " << a << endl;
+
+	cin >> a >> b >> c >> d;
+	var_19(a, b, c, d);
+	cout << "(var_19 result) " << a << endl;
+	
+	cin >> a >> b >> c;
+	var_20(a, b, c, letter);
+	cout << "(var_20 result) " << a << " " << letter << endl;
+
+	cin >> A[0] >> A[1];
+	cout << "(var_21 result) " << var_21(A) << " " << endl;
+	
+	cin >> A[0] >> A[1];
+	cout << "(var_22 result) " << var_22(A) << " " << endl;
+
+    cout << "X coordinate" << endl;
+    cin >> X[0] >> X[1] >> X[2];
+    cout << "Y coordinate" << endl;
+    cin >> Y[0] >> Y[1] >> Y[2];
+    var_23(a,b,X, Y);
+    cout << "(var_23 result) " << a << " " << b << endl;
+    
+	cin >> a_f;
+	cout << "(var_24 result) " << var_24(a_f) << " " << endl;
+	
+	cin >> a;
+	cout << "(var_25 result) " << var_25(a) << " " << endl;
+
+	cin >> a_f;
+	cout << "(var_26 result) " << var_26(a_f) << " " << endl;
+
+	cin >> a_f;
+	cout << "(var_27 result) " << var_27(a_f) << " " << endl;
+	
+	cin >> a;
+	cout << "(var_28 result) " << var_28(a) << " " << endl;
+	
+	cin >> a;
+	cout << "(var_29 result) " << var_29(a) << " " << endl;
+	
+ 	cin >> a;
+ 	cout << "(var_30 result) " << var_30(a) << " " << endl;
+	
+}

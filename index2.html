@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Simulation</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        .fade {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Стиль окна приложения */
+        .app_window {
+            position: absolute;
+            top: 115px;
+            width: 33vh;
+            margin-left: 7px;  
+            height: 57vh; /* Исключаем верхнюю панель */
+            background-color: white;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2 style="position: absolute;top: 0;">iPhone 5s, by Krypton</h2>
+    <div class="phone">
+        <!-- Верхняя кнопка (блокировка) -->
+        <button class="phone_block_but" onclick="toggleScreen()"></button>
+        
+        <!-- Верхняя панель -->
+        <div class="phone_top_block"></div>
+
+        <!-- Дисплей -->
+        <div class="display" id="display">
+            <div class="displayDark fade" id="displayDark"></div>
+
+            <!-- Главный экран -->
+            <div class="display_active fade" id="displayActive">
+                <div class="top_icons">
+                    <p><img src="assets/img/wifi.svg" alt="" style="width: 20px;height: 15px;">...</p>
+                    <p id="activeTime">10:10</p>
+                    <p id="batteryLevel">100%</p>
+                </div>
+                <div class="center_icons">
+                    <div class="apps_icons">
+                        <!-- Иконки приложений -->
+                        <img src="assets/img/phone.png" class="bottom_icons_icon" onclick="openApp('phoneApp')">
+                        <img src="assets/img/safari.png" class="bottom_icons_icon" onclick="openApp('safariApp')">
+                        <img src="assets/img/message.png" class="bottom_icons_icon" onclick="openApp('messageApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+                        <img src="assets/img/camera.png" class="bottom_icons_icon" onclick="openApp('cameraApp')">
+
+                    </div>
+                </div>
+                <div class="bottom_icons">
+                    <img src="assets/img/phone.png" class="bottom_icons_icon">
+                    <img src="assets/img/safari.png" class="bottom_icons_icon">
+                    <img src="assets/img/message.png" class="bottom_icons_icon" onclick="openApp('messageApp')">
+                    <img src="assets/img/camera.png" class="bottom_icons_icon">
+                </div>
+            </div>
+        </div>
+
+        <!-- Приложения -->
+        <div class="app_window fade" id="phoneApp">
+            <div class="app_window_content">
+                <h2>Phone App</h2>
+                <p>Content of the Phone application goes here.</p>
+            </div>
+        </div>
+        <div class="app_window fade" id="safariApp">
+            <div class="app_window_content">
+                <div class="safari_app_content">
+                    
+                </div>
+                <div class="safari_app_input">
+                    <center>
+                        <input type="text" placeholder="search">
+                    </center>
+                        <div class="safari_app_but" style="display: flex;align-content: center;justify-content: space-between;">
+                            <div>
+                                <button><</button>
+                                <button>></button>
+                            </div>
+                            <button>+</button>
+                            <button>close</button>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="app_window fade" id="messageApp">
+            <div class="app_window_content">
+                <div class="app_window_content_message">
+                    <h2 style="margin-left: 5px;">Message</h2>  
+                    <input type="text" placeholder="search">
+                    <div class="app_window_content_message_content_contact">
+                        <div class="app_window_content_message_content_contact_avatar"></div>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app_window fade" id="cameraApp">
+            <div class="app_window_content">
+                <h2>Camera App</h2>
+                <p>Content of the Camera application goes here.</p>
+            </div>
+        </div>
+
+        <!-- Нижняя кнопка -->
+        <div class="phone_bottom_block_but">
+            <button id="button_home" onclick="goToHome()"></button>
+        </div>
+    </div>
+
+    <script>
+        let isScreenOn = false;  // Экран выключен
+        let currentApp = null;   // Текущее открытое приложение
+
+        function toggleScreen() {
+            const displayDark = document.getElementById('displayDark');
+            const displayActive = document.getElementById('displayActive');
+
+            if (!isScreenOn) {
+                // Включение экрана
+                displayDark.style.opacity = '0';
+                setTimeout(() => {
+                    displayDark.style.display = 'none';
+                    displayActive.style.display = 'block';
+                    displayActive.style.opacity = '1';
+                }, 300);
+                isScreenOn = true;
+            } else {
+                // Выключение экрана
+                displayActive.style.opacity = '0';
+                setTimeout(() => {
+                    displayActive.style.display = 'none';
+                    displayDark.style.display = 'block';
+                    displayDark.style.opacity = '1';
+                }, 300);
+                isScreenOn = false;
+                closeApp(); // Закрыть приложение, если оно открыто
+            }
+        }
+
+        function openApp(appId) {
+            if (!isScreenOn) return; // Если экран выключен, ничего не делаем
+
+            const app = document.getElementById(appId);
+            const displayActive = document.getElementById('displayActive');
+
+            if (currentApp) closeApp(); // Закрываем текущее приложение
+
+            currentApp = app;
+            displayActive.style.opacity = '0'; // Главный экран исчезает
+            setTimeout(() => {
+                displayActive.style.display = 'none';
+                app.style.display = 'block';
+                app.style.opacity = '1';
+            }, 300);
+        }
+
+        function closeApp() {
+            if (currentApp) {
+                currentApp.style.opacity = '0';
+                setTimeout(() => {
+                    currentApp.style.display = 'none';
+                    currentApp = null;
+                }, 300);
+            }
+        }
+
+        function goToHome() {
+            if (currentApp) {
+                closeApp(); // Закрыть текущее приложение
+                const displayActive = document.getElementById('displayActive');
+                displayActive.style.display = 'block';
+                displayActive.style.opacity = '1'; // Возврат к главному экрану
+            }
+        }
+    </script>
+</body>
+</html>

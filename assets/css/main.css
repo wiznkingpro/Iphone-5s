@@ -1,0 +1,302 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: San Francisco;
+
+}
+@font-face{
+	font-family: Apple;
+	src: url('../fonts/San Francisco/SFProText-Bold.ttf');
+}
+body{
+	background-color: white;
+}
+
+.phone{
+	width: 35vh;
+	height: 520px;
+	border: 5px solid black;
+	margin: 50px auto;
+	border-radius: 30px;
+	background-color: whitesmoke;
+	background-color: black;
+}
+
+.display{
+	width: 94.5%;
+	height: 76.5%;
+	border: 1px solid black;
+	margin: 5px auto;
+	background-color: white;
+
+}
+
+.phone_bottom_block_but{
+	width: 100%;
+	height: 10%;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: black;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+.phone_bottom_block_but button{
+	width: 42px;
+	height: 42px;
+	border: 1px solid grey;
+	border-radius: 100%;
+	background-color: rgba(25, 25, 25, 1.0);
+	cursor: pointer;
+}
+.phone_top_block{
+	width: 100%;
+	height: 10%;
+	border: 1px solid black;
+	background-color: black;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+}
+
+.display_active{
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.top_icons{
+	width: 100%;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: flex;
+	color: white;
+	justify-content: space-between;
+}
+.bottom_icons{
+	width: 100%;
+	height: 60px;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;	
+	bottom: 0;
+	justify-content: space-between;
+}
+
+.center_icons{
+	width: 100%;
+	height: 82%;
+	background-color: white;
+}
+
+.display_block{
+	width: 100%;
+	height: 100%;
+	background-color: grey;
+	transition: 0.5s;
+	display: none;
+}
+.display_block{
+	color: white;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	display: none;
+}
+.display_block p{
+	font-size: 18px;
+	margin-top: 25px;
+}
+.display_block h1{
+	font-size: 52px;
+	color: white;
+}
+
+.phone_block_but{
+	width: 40px;
+	height: 5px;
+	background-color: black;
+	position: absolute;
+	margin-left: 180px;
+	margin-top: -9px;
+	border-radius: 3px;
+	border: none;
+	transition: 0.4s;
+}
+
+/*.phone_block_but:active{
+	margin-top: 5px;
+}*/
+
+.displayDark{
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 999;
+/*	display: none;*/
+}
+
+.bottom_icons_icon{
+	width: 44px;
+	height: 44px;
+	border-radius: 5px;
+	margin: 5px;
+	border: none;
+	cursor: pointer;
+
+}
+
+
+.app_window_content_message{
+	width: 100%;
+	height: 20%;
+	background-color: white;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.app_window_content_message input{
+	width: 80%;
+	height: 15px;
+	padding: 5px;
+	border: 1px solid silver;
+	outline: none;
+}
+.app_window_content_message input:hover{
+	outline: none;
+}	
+.app_window_content_message_content{
+	width: 90%;
+	height: 35px;
+	border-radius: 10px;
+	background-color: grey;
+}
+
+.safari_app_content{
+	width: 100%;
+	height: 350px;
+	background-color: silver;
+}
+
+.safari_app_input{
+	width: 100%;
+	height: 50px;
+	background-color: grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;	
+}
+.safari_app_input input{
+	width: 80%;
+	height: 15px;
+	border: none;
+	padding: 5px;
+	border-radius: 5px;
+}
+.safari_app_but{
+	height: 20px;
+	border: none;
+}
+
+/* Стиль экрана камеры */
+.camera_screen {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    background-color: black;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera_viewfinder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Контролы камеры */
+.camera_controls {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Переключатель камеры */
+.camera_switch {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+}
+
+/* Кнопки фото и видео */
+.camera_buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.camera_button {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.camera_button:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
